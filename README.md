@@ -8,6 +8,6 @@ Unofficial Vanilla OS Desktop experience with Plasma.
 ## Build
 
 ```bash
-sh prepare.sh
+vib build recipe.yml
 podman image build -t kattleya/plasma .
 ```
