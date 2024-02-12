@@ -1,0 +1,100 @@
+base: ghcr.io/vanilla-os/core:main
+name: Kattleya Plasma
+id: kattleya-plasma
+labels:
+  maintainer: Kattleya Contributors
+args:
+  DEBIAN_FRONTEND: noninteractive
+runs:
+- echo 'APT::Install-Recommends "1";' > /etc/apt/apt.conf.d/01norecommends
+
+modules:
+- name: init-setup
+  type: shell
+  commands:
+  - echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"' > /etc/environment
+  - sed -i '4,10d' /etc/profile
+  - apt update
+  - apt upgrade -y
+  - apt clean
+  - apt-mark hold snapd
+  - apt -y install squashfs-tools minisign
+
+- name: vanilla-tools
+  type: shell
+  source:
+    type: tar
+    # switch to production build once in production
+    url: https://github.com/Vanilla-OS/vanilla-tools/releases/download/continuous/vanilla-tools.tar.gz
+  commands:
+  - mkdir -p /usr/bin
+  - cp /sources/vanilla-tools/lpkg /usr/bin/lpkg
+  - cp /sources/vanilla-tools/cur-gpu /usr/bin/cur-gpu
+  - chmod +x /usr/bin/lpkg
+  - chmod +x /usr/bin/cur-gpu
+
+- name: packages-modules
+  type: includes
+  includes:
+    - modules/00-vanilla-desktop-base
+    - modules/00-vanilla-backgrounds
+    - modules/00-vanilla-first-setup
+    - modules/00-vanilla-system-operator
+    - modules/00-vanilla-apx-gui
+    - modules/00-vanilla-tour
+    - modules/00-vanilla-sideload
+    - modules/00-vanilla-updates-utility
+    - modules/02-waydroid-modules
+    - modules/03-fswarn
+    - modules/10-vanilla-abroot-rollback-notifier
+    - modules/20-plasma-core
+    - modules/30-plasma-essentials
+    - modules/50-laptop-goodies
+    - modules/60-media
+    - modules/80-printers
+    - modules/90-3d-utils
+    - modules/100-accessibility
+    - modules/110-fonts
+    - modules/120-network
+    - modules/130-plymouth
+    - modules/131-plymouth-theme-vanilla
+    - modules/140-password
+    - modules/160-utilities
+    - modules/200-plasma-common
+    - modules/210-libs-extra
+    - modules/998-vanilla-cleanup
+    - modules/999-pkg-cleanup
+
+- name: firstsetup-default-session
+  type: shell
+  commands:
+  - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/administrator
+  - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/standard
+
+- name: cleanup
+  type: shell
+  commands:
+  - apt autoremove -y
+  - apt clean
+  - lpkg --lock
+
+- name: fsguard
+  type: fsguard
+  CustomFsGuard: false
+  FsGuardLocation: "/usr/sbin/FsGuard"
+  GenerateKey: true
+  FilelistPaths: ["/usr/bin"]
+  modules:
+    - name: remove-prev-fsguard
+      type: shell
+      commands:
+        - rm -rf /FsGuard
+        - rm -f ./minisign.pub ./minisign.key
+        - chmod +x /usr/sbin/init
+
+- name: cleanup2
+  type: shell
+  commands:
+    - rm -rf /tmp/*
+    - rm -rf /var/tmp/*
+    - rm -rf /sources

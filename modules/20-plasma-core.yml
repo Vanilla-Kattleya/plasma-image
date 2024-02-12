@@ -1,0 +1,21 @@
+name: gnome-core
+type: apt
+source:
+  packages:
+  - sddm
+  - xorg
+
+  - gnome-session
+  - gnome-shell
+  - gnome-shell-extensions
+  - gnome-browser-connector
+
+  - dbus-x11
+  - evolution-data-server
+  - geoclue-2.0
+  - gjs
+  - mutter
+  - xdg-desktop-portal
+  - xdg-desktop-portal-gnome
+  - xdg-desktop-portal-gtk
+

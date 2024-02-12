@@ -1,0 +1,12 @@
+name: gnome-essentials
+type: apt
+source:
+  packages:
+  - nautilus
+  - nautilus-share
+
+  - gnome-bluetooth
+  - gnome-color-manager
+  - gnome-
+  - gnome-menus
+  - gnome-online-accounts
