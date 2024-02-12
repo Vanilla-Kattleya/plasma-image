@@ -1,12 +1,11 @@
-name: gnome-essentials
+name: plasma-essentials
 type: apt
 source:
   packages:
-  - nautilus
-  - nautilus-share
+  - dolphin
+  - dolphin-nextcloud
+  - dolphin-plugins
 
-  - gnome-bluetooth
-  - gnome-color-manager
-  - gnome-
-  - gnome-menus
-  - gnome-online-accounts
+
+
+

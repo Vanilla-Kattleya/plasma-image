@@ -55,11 +55,11 @@ modules:
     - modules/90-3d-utils
     - modules/100-accessibility
     - modules/110-fonts
-    - modules/120-network
     - modules/130-plymouth
     - modules/131-plymouth-theme-vanilla
     - modules/140-password
     - modules/160-utilities
+    - modules/161-plasma-utilities
     - modules/200-plasma-common
     - modules/210-libs-extra
     - modules/998-vanilla-cleanup

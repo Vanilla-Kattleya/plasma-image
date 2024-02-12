@@ -1,21 +1,26 @@
-name: gnome-core
+name: plasma-core
 type: apt
 source:
   packages:
   - sddm
   - xorg
 
-  - gnome-session
-  - gnome-shell
-  - gnome-shell-extensions
-  - gnome-browser-connector
+  - plasma-desktop
+  - plasma-browser-integration
+  - plasma-discover
+  - plasma-firewall
+  - plasma-nm
+  - plasma-pa
+  - plasma-thunderbolt
+  - plasma-vault
+  - plasma-workspace-wayland
 
   - dbus-x11
-  - evolution-data-server
-  - geoclue-2.0
-  - gjs
-  - mutter
+  
+  - kwin-x11
+  - kwin-wayland
+
   - xdg-desktop-portal
-  - xdg-desktop-portal-gnome
+  - xdg-desktop-portal-kde
   - xdg-desktop-portal-gtk
 
