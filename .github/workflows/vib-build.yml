@@ -1,5 +1,9 @@
 name: Vib Build
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+  
 on:
   push:
     branches: [ "main" ]
@@ -28,7 +32,7 @@ jobs:
 
     # Push the image to GHCR (Image Registry)
     - name: Push To GHCR
-      if: github.repository == 'vanilla-kattleya/plasma-image'
+      if: github.repository == 'Vanilla-Kattleya/plasma-image'
       run: |
         docker login ghcr.io -u ${{ env.REGISTRY_USER }} -p ${{ env.REGISTRY_PASSWORD }}
         docker image push "ghcr.io/vanilla-kattleya/plasma:main"
