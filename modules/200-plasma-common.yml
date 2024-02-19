@@ -24,3 +24,4 @@ source:
   - libpam-kwallet5
   - powerdevil
   - systemsettings
+  - polkit-kde-agent-1

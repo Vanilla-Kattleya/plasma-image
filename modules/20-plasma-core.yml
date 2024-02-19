@@ -3,6 +3,8 @@ type: apt
 source:
   packages:
   - sddm
+  - libpam-systemd
+  - sddm-theme-debian-breeze
   - xorg
 
   - plasma-desktop
