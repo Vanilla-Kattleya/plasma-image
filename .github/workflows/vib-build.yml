@@ -84,6 +84,6 @@ jobs:
       id: attest
       if: github.repository == 'Vanilla-Kattleya/plasma-image' && github.event_name != 'pull_request'
       with:
-        subject-name: ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}
+        subject-name: ${{ env.IMAGE_NAME }}
         subject-digest: ${{ steps.push.outputs.digest }}
         push-to-registry: false
