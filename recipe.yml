@@ -75,11 +75,6 @@ stages:
     - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/administrator
     - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/standard
 
-  - name: gkr-pam-workaround
-    type: shell
-    commands:
-    - echo "XDG_RUNTIME_DIR=/run/user/$UID" > /etc/profile
-
   - name: cleanup
     type: shell
     commands:
