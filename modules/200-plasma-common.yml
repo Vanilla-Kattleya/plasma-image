@@ -6,6 +6,7 @@ source:
   - webp-pixbuf-loader
   - bluedevil
   - breeze-gtk-theme
+  - desktop-base
   - ibus-data
   - kde-config-gtk-style
   - kde-config-screenlocker
