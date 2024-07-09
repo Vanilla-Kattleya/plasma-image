@@ -1,0 +1,5 @@
+name: debug
+type: apt
+source:
+  packages:
+  - plocate
