@@ -66,6 +66,7 @@ stages:
       - modules/161-plasma-utilities.yml
       - modules/200-plasma-common.yml
       - modules/210-libs-extra.yml
+      - modules/990-debug.yml
       - modules/998-vanilla-cleanup.yml
       - modules/999-pkg-cleanup.yml
 
