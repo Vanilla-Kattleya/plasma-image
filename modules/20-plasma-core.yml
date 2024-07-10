@@ -6,6 +6,7 @@ source:
   - libpam-systemd
   - sddm-theme-debian-breeze
   - xorg
+  - xserver-xephyr
 
   - plasma-desktop
   - plasma-browser-integration
