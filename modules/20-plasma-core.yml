@@ -16,10 +16,11 @@ source:
   - plasma-pa
   - plasma-thunderbolt
   - plasma-vault
+  - plasma-workspace
   - plasma-workspace-wayland
 
   - dbus-x11
-  
+
   - kwin-x11
   - kwin-wayland
 
