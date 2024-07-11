@@ -68,6 +68,7 @@ stages:
       - modules/170-gnome-software-vso-plugin.yml
       - modules/200-plasma-common.yml
       - modules/210-libs-extra.yml
+      - modules/996-kde-cleanup.yml
       - modules/997-clobber-kde-apps.yml
       - modules/998-vanilla-cleanup.yml
       - modules/999-pkg-cleanup.yml

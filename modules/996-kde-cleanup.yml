@@ -1,0 +1,4 @@
+name: vanilla-cleanup
+type: shell
+commands:
+- cp /usr/share/sddm/faces/* /etc/kattleya-theming/sddm/faces/
