@@ -1,0 +1,6 @@
+name: clobber-kde
+type: shell
+commands:
+- rm /usr/share/applications/org.kde.konsole.desktop
+- rm /usr/share/applications/org.kde.discover*
+- rm /usr/share/applications/org.kde.discover.notifier.desktop

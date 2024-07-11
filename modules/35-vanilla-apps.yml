@@ -3,3 +3,4 @@ type: apt
 source:
   packages:
   - blackbox-terminal
+  - gnome-software

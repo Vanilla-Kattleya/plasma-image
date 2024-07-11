@@ -53,7 +53,7 @@ stages:
       - modules/10-vanilla-abroot-rollback-notifier.yml
       - modules/20-plasma-core.yml
       - modules/30-plasma-essentials.yml
-      - modules/35-black-box.yml
+      - modules/35-vanilla-apps.yml
       - modules/50-laptop-goodies.yml
       - modules/60-media.yml
       - modules/80-printers.yml
@@ -65,9 +65,10 @@ stages:
       - modules/140-password.yml
       - modules/160-utilities.yml
       - modules/161-plasma-utilities.yml
+      - modules/170-gnome-software-vso-plugin.yml
       - modules/200-plasma-common.yml
       - modules/210-libs-extra.yml
-      - modules/997-clobber-konsole.yml
+      - modules/997-clobber-kde-apps.yml
       - modules/998-vanilla-cleanup.yml
       - modules/999-pkg-cleanup.yml
 

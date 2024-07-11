@@ -1,5 +1,0 @@
-name: clobber-konsole
-type: shell
-commands:
-- rm /usr/share/applications/org.kde.konsole.desktop
-- mv /usr/share/applications/org.kde.konsole.desktop.override /usr/share/applications/org.kde.konsole.desktop
