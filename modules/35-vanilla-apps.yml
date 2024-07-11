@@ -4,3 +4,4 @@ source:
   packages:
   - blackbox-terminal
   - gnome-software
+  - gnome-software-plugin-flatpak
