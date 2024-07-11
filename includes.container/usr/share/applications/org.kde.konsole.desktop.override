@@ -403,3 +403,5 @@ Name[zh_TW]=開啟新分頁
 Icon=tab-new
 Exec=konsole --new-tab
 Hidden=true
+NoDisplay=true
+NotShowIn=KDE
