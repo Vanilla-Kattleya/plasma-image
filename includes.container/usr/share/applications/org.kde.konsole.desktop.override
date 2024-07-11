@@ -1,4 +1,7 @@
 [Desktop Entry]
+Hidden=true
+NoDisplay=true
+NotShowIn=KDE
 Type=Application
 TryExec=konsole
 Exec=konsole
@@ -402,6 +405,3 @@ Name[zh_CN]=打开新的标签页
 Name[zh_TW]=開啟新分頁
 Icon=tab-new
 Exec=konsole --new-tab
-Hidden=true
-NoDisplay=true
-NotShowIn=KDE
