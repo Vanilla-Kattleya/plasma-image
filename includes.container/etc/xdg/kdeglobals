@@ -1,2 +1,5 @@
 [KDE]
 LookAndFeelPackage=Dracula
+
+[Icons]
+Theme=breeze-dark
