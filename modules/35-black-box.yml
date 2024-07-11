@@ -1,0 +1,5 @@
+name: plasma-essentials
+type: apt
+source:
+  packages:
+  - black-box

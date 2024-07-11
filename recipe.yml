@@ -53,6 +53,7 @@ stages:
       - modules/10-vanilla-abroot-rollback-notifier.yml
       - modules/20-plasma-core.yml
       - modules/30-plasma-essentials.yml
+      - modules/35-black-box.yml
       - modules/50-laptop-goodies.yml
       - modules/60-media.yml
       - modules/80-printers.yml
