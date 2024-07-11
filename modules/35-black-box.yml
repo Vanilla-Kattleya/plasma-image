@@ -1,5 +1,5 @@
-name: plasma-essentials
+name: blackbox
 type: apt
 source:
   packages:
-  - black-box
+  - blackbox-terminal
