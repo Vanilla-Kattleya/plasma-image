@@ -10,7 +10,8 @@ stages:
   args:
     DEBIAN_FRONTEND: noninteractive
   runs:
-  - echo 'APT::Install-Recommends "1";' > /etc/apt/apt.conf.d/01norecommends
+    commands:
+      - echo 'APT::Install-Recommends "1";' > /etc/apt/apt.conf.d/01norecommends
 
   modules:
   - name: init-setup
@@ -103,7 +104,7 @@ stages:
         commands:
           - rm -rf /FsGuard
           - rm -f ./minisign.pub ./minisign.key
-          - chmod +x /usr/sbin/init
+          - chmod +x /usr/share/init.d/010-fsguard.sh
 
   - name: cleanup2
     type: shell
