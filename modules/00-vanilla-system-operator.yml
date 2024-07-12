@@ -22,12 +22,21 @@ modules:
   - chmod +x /usr/bin/vso-os-shell
   - echo "/usr/bin/vso-os-shell" >> /etc/shells
   - sed -i 's/^\(SHELL=\).*/\1\/usr\/bin\/vso-os-shell/' /etc/default/useradd
+- name: reset-vso
+  type: shell
+  commands:
+  - chmod +x /usr/bin/reset-vso
 - name: vso-deps-install
   type: apt
   source:
     packages:
     - dpkg-dev
     - ifstat
+- name: vso-tasks-rotation-autostart
+  type: shell
+  commands: 
+  - mkdir /usr/lib/systemd/user/default.target.wants
+  - ln -s /usr/lib/systemd/user/vso-tasks-rotation.service /usr/lib/systemd/user/default.target.wants/vso-tasks-rotation.service
 - name: adwdialog
   type: dpkg-buildpackage
   source:

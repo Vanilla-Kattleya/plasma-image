@@ -5,3 +5,4 @@ source:
   - ghostscript
   - zenity
   - flatpak
+  - locales-all

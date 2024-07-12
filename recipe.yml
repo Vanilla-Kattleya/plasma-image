@@ -22,7 +22,7 @@ stages:
     - apt update
     - apt upgrade -y
     - apt clean
-    - apt-mark hold snapd
+    - apt-mark hold snapd gnome-software-plugin-snap
     - apt -y install squashfs-tools minisign
 
   - name: vanilla-tools
@@ -60,6 +60,7 @@ stages:
       - modules/90-3d-utils.yml
       - modules/100-accessibility.yml
       - modules/110-fonts.yml
+      - modules/121-disable-ssh-daemon.yml
       - modules/130-plymouth.yml
       - modules/131-plymouth-theme-vanilla.yml
       - modules/140-password.yml
@@ -75,6 +76,12 @@ stages:
     commands:
     - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/administrator
     - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/standard
+
+  - name: apx-vso-pico-shutdown-service
+    type: shell
+    commands:
+    - mkdir -p /etc/systemd/user/graphical-session.target.wants/
+    - ln -s /etc/systemd/user/apx-vso-pico.service /etc/systemd/user/graphical-session.target.wants/
 
   - name: cleanup
     type: shell
@@ -100,7 +107,7 @@ stages:
         commands:
           - rm -rf /FsGuard
           - rm -f ./minisign.pub ./minisign.key
-          - chmod +x /usr/sbin/init
+          - chmod +x /usr/share/init.d/010-fsguard.sh
 
   - name: cleanup2
     type: shell
