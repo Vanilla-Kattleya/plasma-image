@@ -3,9 +3,10 @@ name: Vib Build
 on:
   push:
     branches:
-      - 'main'
+      - "main"
+      - "dev"
     tags:
-      - '*'
+      - "*"
   workflow_dispatch:
   pull_request:
 
@@ -49,14 +50,14 @@ jobs:
       run: |
         REPO_OWNER_LOWERCASE="$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')"
         echo "REPO_OWNER_LOWERCASE=$REPO_OWNER_LOWERCASE" >> "$GITHUB_ENV"
-        echo "IMAGE_NAME=ghcr.io/$REPO_OWNER_LOWERCASE/plasma" >> "$GITHUB_ENV"
+        echo "IMAGE_URL=ghcr.io/$REPO_OWNER_LOWERCASE/plasma" >> "$GITHUB_ENV"
 
     - name: Docker meta
       id: docker_meta
       uses: docker/metadata-action@v5
       with:
         images: |
-          ${{ env. IMAGE_NAME }}
+          ${{ env. IMAGE_URL }}
         tags: |
           type=semver,pattern={{version}}
           type=semver,pattern={{major}}.{{minor}}
@@ -92,8 +93,8 @@ jobs:
     - name: Attest pushed image
       uses: actions/attest-build-provenance@v1
       id: attest
-      if: github.repository == 'Vanilla-Kattleya/plasma-image' && github.event_name != 'pull_request'
+      if: ${{ github.event_name != 'pull_request' }}
       with:
-        subject-name: ${{ env.IMAGE_NAME }}
+        subject-name: ${{ env.IMAGE_URL }}
         subject-digest: ${{ steps.push.outputs.digest }}
         push-to-registry: false
