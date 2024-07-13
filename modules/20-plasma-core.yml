@@ -10,7 +10,6 @@ source:
 
   - plasma-desktop
   - plasma-browser-integration
-  - plasma-discover
   - plasma-firewall
   - plasma-nm
   - plasma-pa
