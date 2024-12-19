@@ -1,3 +1,5 @@
+# **THIS IMAGE IS OUT OF DATE. THE UP TO DATE IMAGE IS LOCATED AT https://github.com/Kanola-Images/Kanola**
+
 # Kattleya Plasma Image
 
 Containerfile for building Kattleya, an unofficial Vanilla OS Plasma image.
